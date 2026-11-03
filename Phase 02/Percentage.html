@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('calculatorForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const num1 = parseFloat(document.getElementById('num1').value);
+                const num2 = parseFloat(document.getElementById('num2').value);
+                const num3 = parseFloat(document.getElementById('num3').value);
+                
+                if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                    alert('Please enter valid numbers for all subjects.');
+                    return;
+                }
+
+                const total = num1 + num2 + num3;
+                const percentage = (total / 300) * 100; // Assuming each subject is out of 100
+
+                alert(`Total: ${total}, Percentage: ${percentage.toFixed(2)}%`);
+                document.getElementById('result').textContent = `Total: ${total}, Percentage: ${percentage.toFixed(2)}%`;
+            });
+        });
+
+    </script>    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form id="calculatorForm">
+        <label for="num1">Subject 1:</label>
+        <input type="numer" id="num1" name="num1" required>
+        <br><br>
+        <label for="num2">Subject 2:</label>
+        <input type="numer" id="num2" name="num2" required>
+        <br><br>
+        <label for="num3">Subject 3:</label>
+        <input type="numer" id="num3" name="num3" required>
+        
+        <br><br>
+        <h1 id="result"></h1>
+        <button type="submit">Calculator</button>
+
+
+
+    </form>
+    
+</body>
+</html>
