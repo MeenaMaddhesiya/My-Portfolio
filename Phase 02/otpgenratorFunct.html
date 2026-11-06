@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>OTP Generator</h1>
+    <script>
+        function generateOTP(length) {
+            const digits = '0123456789';
+            let otp = '';
+            for (let i = 0; i < length; i++) {
+                otp += digits[Math.floor(Math.random() * digits.length)];
+            }
+            return otp;
+        }
+
+        console.log(generateOTP(4));
+        console.log(generateOTP(6));
+        console.log(generateOTP(8));
+        </script>
+</body>
+</html>
