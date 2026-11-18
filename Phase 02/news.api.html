@@ -13,19 +13,62 @@
         h1 {
             text-align:center;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px ;
+        }
+
+        div {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        a {
+            color: #1a0dab;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        h3{
+            margin-top: 0;
+        }
+        p{
+            color: #000;
+        }
     </style>
 </head>
 <body>
     <h1>India's Top News of last month</h1>
+<!-- -{
+-"source": {
+"id": null,
+"name": "Crypto Briefing"
+},
+"author": "Vivian Nguyen",
+"title": "Wells Fargo adds 14,600 BTC of exposure in Q3, leading Wall Street",
+"description": "Wells Fargo's increased Bitcoin exposure highlights growing institutional interest, potentially influencing broader market adoption and regulatory focus.\nThe post Wells Fargo adds 14,600 BTC of exposure in Q3, leading Wall Street appeared first on Crypto Brie…",
+"url": "https://cryptobriefing.com/wells-fargo-adds-14600-btc-q3/",
+"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/11/18013422/library-wells-fargo-adds-14-600-btc-of-exposure-in-q3-leading-wa-800x450.jpg",
+"publishedAt": "2026-11-18T06:34:34Z",
+"content": "The bank's Bitcoin ETF position roughly doubled last quarter, though most of it belongs to clients rather than the bank itselfWells Fargo was the biggest Bitcoin buyer on Wall Street in the third qua… [+3135 chars]"
+}, -->
     <script>
-        const url = "https://newsapi.org/v2/everything?q=india&from=2026-10-17&sortBy=publishedAt&apiKey=API_KEY";
+        const url = "https://newsapi.org/v2/everything?q=india&from=2026-10-18&sortBy=publishedAt&apiKey=";
         fetch(url)
             .then(response => response.json())
             .then(data => {
                 data.articles.forEach(article => {
                     console.log(article);
                     const articleElement = document.createElement('div');
+                    const image = document.createElement('img');
+                    image.src = article.urlToImage;
                     articleElement.innerHTML = `<h3>${article.title}</h3><p>${article.description}</p><a href="${article.url}" target="_blank">Read more</a>`;
+                    articleElement.insertBefore(image, articleElement.firstChild);
                     document.body.appendChild(articleElement);
                 });
             })
